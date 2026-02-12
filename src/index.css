@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+/* Safelist for dynamic color-scheme classes (Tailwind v4 does not detect variable class names) */
+@source "./safelist.txt";
+
+/* ========== Color schemes: whole-app CSS variables (rgb values for alpha) ========== */
+[data-color-scheme="default"] {
+  --scheme-bg: 30 41 59;
+  --scheme-sidebar: 30 41 59;
+  --scheme-border: 51 65 85;
+  --scheme-accent: 56 189 248;
+  --scheme-accent-bg: 56 189 248 / 0.2;
+  --scheme-user-bubble: 14 165 233 / 0.3;
+  --scheme-user-text: 224 242 254;
+  --scheme-assistant-bg: 51 65 85 / 0.8;
+  --scheme-assistant-border: 71 85 105;
+  --scheme-send-bg: 14 165 233;
+  --scheme-send-hover: 56 189 248;
+  --scheme-input-focus: 56 189 248 / 0.5;
+  --scheme-selection: 14 165 233 / 0.3;
+}
+
+[data-color-scheme="warm"] {
+  --scheme-bg: 41 37 36;
+  --scheme-sidebar: 41 37 36;
+  --scheme-border: 69 64 60;
+  --scheme-accent: 251 191 36;
+  --scheme-accent-bg: 245 158 11 / 0.2;
+  --scheme-user-bubble: 245 158 11 / 0.35;
+  --scheme-user-text: 254 243 199;
+  --scheme-assistant-bg: 51 65 85 / 0.9;
+  --scheme-assistant-border: 120 53 15;
+  --scheme-send-bg: 245 158 11;
+  --scheme-send-hover: 251 191 36;
+  --scheme-input-focus: 251 191 36 / 0.5;
+  --scheme-selection: 245 158 11 / 0.3;
+}
+
+[data-color-scheme="cool"] {
+  --scheme-bg: 30 27 75;
+  --scheme-sidebar: 30 27 75;
+  --scheme-border: 55 48 163;
+  --scheme-accent: 129 140 248;
+  --scheme-accent-bg: 99 102 241 / 0.2;
+  --scheme-user-bubble: 99 102 241 / 0.35;
+  --scheme-user-text: 224 231 255;
+  --scheme-assistant-bg: 51 65 85 / 0.9;
+  --scheme-assistant-border: 49 46 129;
+  --scheme-send-bg: 99 102 241;
+  --scheme-send-hover: 129 140 248;
+  --scheme-input-focus: 129 140 248 / 0.5;
+  --scheme-selection: 99 102 241 / 0.3;
+}
+
+[data-color-scheme="soft"] {
+  --scheme-bg: 42 42 46;
+  --scheme-sidebar: 42 42 46;
+  --scheme-border: 76 29 55;
+  --scheme-accent: 251 113 133;
+  --scheme-accent-bg: 244 63 94 / 0.2;
+  --scheme-user-bubble: 244 63 94 / 0.3;
+  --scheme-user-text: 255 228 230;
+  --scheme-assistant-bg: 51 65 85 / 0.85;
+  --scheme-assistant-border: 88 28 135;
+  --scheme-send-bg: 244 63 94;
+  --scheme-send-hover: 251 113 133;
+  --scheme-input-focus: 251 113 133 / 0.5;
+  --scheme-selection: 244 63 94 / 0.3;
+}
+
+/* Mobile view customization */
+@layer base {
+  /* Improve touch targets and prevent zoom on inputs on iOS */
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* Safe area for notched devices */
+  .safe-top { padding-top: env(safe-area-inset-top); }
+  .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+  .safe-left { padding-left: env(safe-area-inset-left); }
+  .safe-right { padding-right: env(safe-area-inset-right); }
+}
+
+/* Minimum touch target size (accessibility) */
+@layer utilities {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Chat: wrap long text inside bubbles, thin scrollbar */
+.chat-bubble {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.chat-messages {
+  scrollbar-gutter: stable;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: rgb(71 85 105);
+  border-radius: 4px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background: rgb(100 116 139);
+}
