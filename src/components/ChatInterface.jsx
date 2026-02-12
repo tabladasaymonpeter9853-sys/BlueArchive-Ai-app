@@ -168,7 +168,7 @@ function ChatInterface({ onHome = () => { }, onAbout = () => { } }) {
   const closeSidebar = () => setSidebarOpen(false);
 
   return (
-    <div className="flex h-screen bg-[rgb(var(--scheme-bg))] text-white overflow-hidden">
+    <div className="flex h-screen bg-[rgb(var(--scheme-bg))] text-white overflow-hidden ba-mesh">
       {/* Customize modal */}
       <CustomizeModal
         isOpen={customizeOpen}
@@ -191,12 +191,12 @@ function ChatInterface({ onHome = () => { }, onAbout = () => { } }) {
       {/* Left sidebar */}
       <aside
         className={`
-          w-64 sm:w-72 flex-shrink-0 flex flex-col bg-[rgb(var(--scheme-sidebar))] border-r border-[rgb(var(--scheme-border))] z-50
+          w-64 sm:w-72 flex-shrink-0 flex flex-col bg-[rgb(var(--scheme-sidebar))]/85 border-r border-[rgb(var(--scheme-border))] z-50 sidebar-edge ba-frame
           fixed md:relative inset-y-0 left-0 transform transition-transform duration-200 ease-out
           ${sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
         `}
       >
-        <div className="p-4 border-b border-[rgb(var(--scheme-border))] flex items-center justify-between md:block safe-top">
+        <div className="p-4 border-b border-[rgb(var(--scheme-border))] flex items-center justify-between md:block safe-top ba-accent-line">
           <div className="space-y-1 md:block flex-1">
             <button
               type="button"
@@ -229,7 +229,7 @@ function ChatInterface({ onHome = () => { }, onAbout = () => { } }) {
           </button>
         </div>
 
-        <div className="p-4 border-b border-[rgb(var(--scheme-border))]">
+        <div className="p-4 border-b border-[rgb(var(--scheme-border))] ba-accent-line">
           <div className="flex items-center gap-2 text-slate-400 text-xs font-medium mb-2">
             <span
               className="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-[rgb(var(--scheme-accent-bg))] text-[rgb(var(--scheme-accent))]"
@@ -243,7 +243,7 @@ function ChatInterface({ onHome = () => { }, onAbout = () => { } }) {
               <img
                 src={getIcon(selectedCharacter)}
                 alt={selectedCharacter.name}
-                className="w-11 h-11 rounded-full object-cover border-2 border-[rgb(var(--scheme-border))] flex-shrink-0"
+                className="w-11 h-11 rounded-full object-cover border-2 border-[rgb(var(--scheme-border))] flex-shrink-0 animate-glow-pulse"
               />
             ) : (
               <div
@@ -258,7 +258,7 @@ function ChatInterface({ onHome = () => { }, onAbout = () => { } }) {
           </div>
         </div>
 
-        <div className="p-4 border-b border-[rgb(var(--scheme-border))]">
+        <div className="p-4 border-b border-[rgb(var(--scheme-border))] ba-accent-line">
           <div className="flex items-center gap-2 text-slate-400 text-xs font-medium mb-2">
             <span
               className="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-[rgb(var(--scheme-accent-bg))] text-[rgb(var(--scheme-accent))]"
@@ -291,7 +291,7 @@ function ChatInterface({ onHome = () => { }, onAbout = () => { } }) {
           <button
             type="button"
             onClick={startNewChat}
-            className="w-full flex items-center gap-2 py-2.5 px-3 rounded-xl bg-[rgb(var(--scheme-accent-bg))] hover:opacity-90 border border-[rgb(var(--scheme-border))] text-[rgb(var(--scheme-accent))] text-sm font-medium mb-3 transition"
+            className="w-full flex items-center gap-2 py-2.5 px-3 rounded-xl ba-chip hover:opacity-90 hover:scale-[1.02] active:scale-95 border border-[rgb(var(--scheme-border))] text-[rgb(var(--scheme-accent))] text-sm font-semibold mb-3 transition-all duration-200 animate-pop-in"
           >
             + New chat
           </button>
@@ -306,8 +306,8 @@ function ChatInterface({ onHome = () => { }, onAbout = () => { } }) {
                       setActiveChatId(chat.id);
                       closeSidebar();
                     }}
-                    className={`flex-1 flex items-center gap-2.5 p-2.5 rounded-xl transition text-left min-w-0 ${chat.id === resolvedActiveId
-                      ? 'bg-[rgb(var(--scheme-accent-bg))] border border-[rgb(var(--scheme-border))]'
+                    className={`flex-1 flex items-center gap-2.5 p-2.5 rounded-xl transition-all duration-200 text-left min-w-0 hover-lift ${chat.id === resolvedActiveId
+                      ? 'bg-[rgb(var(--scheme-accent-bg))] border border-[rgb(var(--scheme-border))] shadow-inner'
                       : 'hover:opacity-90 border border-transparent'
                       }`}
                   >
@@ -350,7 +350,7 @@ function ChatInterface({ onHome = () => { }, onAbout = () => { } }) {
                     onClick={() => {
                       openOrCreateChatWithCharacter(char);
                     }}
-                    className="w-full flex items-center gap-2 p-2.5 rounded-xl hover:opacity-90 transition text-left"
+                    className="w-full flex items-center gap-2 p-2.5 rounded-xl hover:opacity-90 transition-all duration-200 text-left hover-lift"
                   >
                     {getIcon(char) ? (
                       <img
@@ -377,9 +377,9 @@ function ChatInterface({ onHome = () => { }, onAbout = () => { } }) {
         className="flex-1 flex flex-col min-w-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${backgroundUrl})` }}
       >
-        <div className="flex-1 flex flex-col min-h-0 bg-[rgb(var(--scheme-bg))]/50 backdrop-blur-[2px]">
+        <div className="flex-1 flex flex-col min-h-0 bg-[rgb(var(--scheme-bg))]/50 backdrop-blur-md">
           {/* Mobile header */}
-          <div className="md:hidden flex items-center gap-3 px-4 py-3 border-b border-[rgb(var(--scheme-border))] safe-top bg-[rgb(var(--scheme-sidebar))]/90 backdrop-blur">
+          <div className="md:hidden flex items-center gap-3 px-4 py-3 border-b border-[rgb(var(--scheme-border))] safe-top bg-[rgb(var(--scheme-sidebar))]/95 backdrop-blur-md shadow-lg shadow-black/10">
             <button
               type="button"
               onClick={() => setSidebarOpen(true)}
@@ -412,10 +412,10 @@ function ChatInterface({ onHome = () => { }, onAbout = () => { } }) {
           <div className="flex-1 overflow-y-auto overflow-x-hidden p-4 sm:p-5 md:p-6 lg:p-8 space-y-4 max-w-4xl mx-auto w-full min-w-0 chat-messages">
             {messages.length === 0 ? (
               <div className="flex flex-col items-center justify-center min-h-[40vh] text-center px-4">
-                <div className="w-16 h-16 rounded-2xl bg-[rgb(var(--scheme-assistant-bg))] flex items-center justify-center text-3xl mb-4">
+                <div className="w-16 h-16 rounded-2xl bg-[rgb(var(--scheme-assistant-bg))] flex items-center justify-center text-3xl mb-4 animate-float">
                   💬
                 </div>
-                <p className="text-slate-400 text-sm sm:text-base">
+                <p className="text-slate-400 text-sm sm:text-base animate-fade-in-up delay-200">
                   Start the conversation with {selectedCharacter.displayName}.
                 </p>
                 <p className="text-slate-500 text-xs mt-1">Your messages will appear here.</p>
@@ -431,6 +431,9 @@ function ChatInterface({ onHome = () => { }, onAbout = () => { } }) {
                   <div
                     key={`${msg.role}-${index}`}
                     className={`flex gap-3 sm:gap-4 min-w-0 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}
+                    style={{
+                      animation: `${msg.role === 'user' ? 'slideInRight' : 'slideInLeft'} 0.4s ease-out both`,
+                    }}
                   >
                     {msg.role === 'assistant' &&
                       (iconSrc ? (
@@ -447,10 +450,11 @@ function ChatInterface({ onHome = () => { }, onAbout = () => { } }) {
                         </div>
                       ))}
                     <div
-                      className={`min-w-0 max-w-[85%] sm:max-w-[75%] rounded-2xl px-4 py-3 sm:px-5 sm:py-3.5 text-sm sm:text-base break-words chat-bubble ${msg.role === 'user'
-                        ? 'bg-[rgb(var(--scheme-user-bubble))] text-[rgb(var(--scheme-user-text))] rounded-tr-sm'
-                        : 'bg-[rgb(var(--scheme-assistant-bg))] text-slate-200 border border-[rgb(var(--scheme-assistant-border))] rounded-tl-sm'
-                        }`}
+                      className={`min-w-0 max-w-[85%] sm:max-w-[75%] rounded-2xl px-4 py-3 sm:px-5 sm:py-3.5 text-sm sm:text-base break-words chat-bubble bubble-shadow ${
+                        msg.role === 'user'
+                          ? 'bg-[rgb(var(--scheme-user-bubble))] text-[rgb(var(--scheme-user-text))] rounded-tr-sm bubble-user'
+                          : 'bg-[rgb(var(--scheme-assistant-bg))] text-slate-200 border border-[rgb(var(--scheme-assistant-border))] rounded-tl-sm bubble-assistant'
+                      }`}
                     >
                       {msg.isTyping ? (
                         <span className="inline-flex items-center gap-1">
@@ -470,9 +474,9 @@ function ChatInterface({ onHome = () => { }, onAbout = () => { } }) {
           </div>
 
           {/* Input area */}
-          <div className="p-3 sm:p-4 md:p-5 border-t border-[rgb(var(--scheme-border))] safe-bottom bg-[rgb(var(--scheme-bg))]/60 backdrop-blur">
+          <div className="p-3 sm:p-4 md:p-5 border-t border-[rgb(var(--scheme-border))] safe-bottom bg-[rgb(var(--scheme-bg))]/70 backdrop-blur-md shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
             <div
-              className="flex items-center gap-2 rounded-2xl bg-[rgb(var(--scheme-assistant-bg))] border-2 border-[rgb(var(--scheme-border))] px-3 sm:px-4 py-2.5 transition focus-within:border-[rgb(var(--scheme-input-focus))] min-w-0 overflow-hidden"
+              className="flex items-center gap-2 rounded-2xl bg-[rgb(var(--scheme-assistant-bg))] border-2 border-[rgb(var(--scheme-border))] px-3 sm:px-4 py-2.5 transition focus-within:border-[rgb(var(--scheme-input-focus))] min-w-0 overflow-hidden input-glow-ring bubble-shadow"
             >
               <input
                 value={input}
@@ -486,7 +490,7 @@ function ChatInterface({ onHome = () => { }, onAbout = () => { } }) {
                 type="button"
                 onClick={handleSend}
                 disabled={isLoading}
-                className="p-3 sm:p-2.5 rounded-xl text-white bg-[rgb(var(--scheme-send-bg))] hover:bg-[rgb(var(--scheme-send-hover))] transition touch-target sm:min-h-0 sm:min-w-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="p-3 sm:p-2.5 rounded-xl text-white bg-[rgb(var(--scheme-send-bg))] hover:bg-[rgb(var(--scheme-send-hover))] transition-all touch-target sm:min-h-0 sm:min-w-0 disabled:opacity-50 disabled:cursor-not-allowed send-btn-glow"
                 aria-label="Send"
               >
                 {isLoading ? '⏳' : '✈'}
@@ -497,10 +501,10 @@ function ChatInterface({ onHome = () => { }, onAbout = () => { } }) {
       </div>
 
       {/* Right panel: Other Character AI (desktop) */}
-      <aside className="hidden lg:flex w-72 xl:w-80 flex-shrink-0 flex-col bg-[rgb(var(--scheme-sidebar))] border-l border-[rgb(var(--scheme-border))] overflow-hidden">
+      <aside className="hidden lg:flex w-72 xl:w-80 flex-shrink-0 flex-col bg-[rgb(var(--scheme-sidebar))] border-l border-[rgb(var(--scheme-border))] overflow-hidden sidebar-edge">
         <div className="p-4 border-b border-[rgb(var(--scheme-border))]">
           <div className="text-slate-300 text-sm font-medium mb-2">Selected AI</div>
-          <div className="flex items-center gap-2.5 p-3 rounded-xl bg-[rgb(var(--scheme-assistant-bg))]">
+          <div className="flex items-center gap-2.5 p-3 rounded-xl bg-[rgb(var(--scheme-assistant-bg))] bubble-shadow border border-[rgb(var(--scheme-border))]/50">
             {getIcon(selectedCharacter) ? (
               <img
                 src={getIcon(selectedCharacter)}
@@ -525,7 +529,7 @@ function ChatInterface({ onHome = () => { }, onAbout = () => { } }) {
                 <button
                   type="button"
                   onClick={() => openOrCreateChatWithCharacter(char)}
-                  className="w-full flex items-center gap-2.5 p-2.5 rounded-xl hover:opacity-90 transition text-left"
+                  className="w-full flex items-center gap-2.5 p-2.5 rounded-xl hover:opacity-90 transition-all duration-200 text-left hover-lift"
                 >
                   {getIcon(char) ? (
                     <img

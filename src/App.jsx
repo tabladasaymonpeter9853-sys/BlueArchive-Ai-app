@@ -11,26 +11,32 @@ function App() {
   return (
     <ThemeProvider>
       <ThemeRoot>
-      {activeTab === 'home' && (
-        <LandingPage
-          onStart={() => setActiveTab('chat')}
-          onInfo={() => setActiveTab('about')}
-          onAbout={() => setActiveTab('about')}
-        />
-      )}
-      {activeTab === 'about' && (
-        <AboutPage
-          onBack={() => setActiveTab('home')}
-          onHome={() => setActiveTab('home')}
-          onAbout={() => setActiveTab('about')}
-        />
-      )}
-      {activeTab === 'chat' && (
-        <ChatInterface
-          onHome={() => setActiveTab('home')}
-          onAbout={() => setActiveTab('about')}
-        />
-      )}
+        {activeTab === 'home' && (
+          <div key="home" className="animate-page">
+            <LandingPage
+              onStart={() => setActiveTab('chat')}
+              onInfo={() => setActiveTab('about')}
+              onAbout={() => setActiveTab('about')}
+            />
+          </div>
+        )}
+        {activeTab === 'about' && (
+          <div key="about" className="animate-page">
+            <AboutPage
+              onBack={() => setActiveTab('home')}
+              onHome={() => setActiveTab('home')}
+              onAbout={() => setActiveTab('about')}
+            />
+          </div>
+        )}
+        {activeTab === 'chat' && (
+          <div key="chat" className="animate-page">
+            <ChatInterface
+              onHome={() => setActiveTab('home')}
+              onAbout={() => setActiveTab('about')}
+            />
+          </div>
+        )}
       </ThemeRoot>
     </ThemeProvider>
   );

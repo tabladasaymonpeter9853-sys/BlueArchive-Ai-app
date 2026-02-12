@@ -9,7 +9,7 @@ function ThemeRoot({ children }) {
   return (
     <div
       data-color-scheme={theme.colorScheme}
-      className="min-h-screen text-white font-sans bg-[rgb(var(--scheme-bg))] selection:bg-[rgb(var(--scheme-selection))]"
+      className="min-h-screen text-white font-sans bg-[rgb(var(--scheme-bg))] selection:bg-[rgb(var(--scheme-selection))] antialiased"
     >
       {children}
     </div>

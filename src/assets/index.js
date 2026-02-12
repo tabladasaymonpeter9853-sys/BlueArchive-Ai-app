@@ -17,10 +17,22 @@ import BG_CommitteeRoom_Sunset from './BG_CommitteeRoom_Sunset.webp';
 import BG_ConventionHall3_Sunset from './BG_ConventionHall3_Sunset.webp';
 import BG_CruiseRooftop_Sunset from './BG_CruiseRooftop_Sunset.jpg';
 import Blue_Archive_logo_JP from './Blue_Archive_logo_JP.png';
+import Abydos_Intro from './Abydos_Intro.webp';
+import Gehenna_Intro from './Gehenna_Intro.webp';
+import Hyakkiyako_Intro from './Hyakkiyako_Intro.webp';
+import Millennium_Intro from './Millennium_Intro.webp';
+import Red_Winter_Intro from './Red_Winter_Intro.webp';
+import Shanhaijing_Intro from './Shanhaijing_Intro.webp';
+import Trinity_Intro from './Trinity_Intro.webp';
+import Valkyrie_Intro from './Valkyrie_Intro.webp';
+import Wild_Hunt_Intro from './Wild_Hunt_Intro.webp';
 import Reisa_Icon from './Reisa_Icon.webp';
+import Reisa_Portrait from './Reisa_Portrait.webp';
 import Hoshino_Icon from './Hoshino_Icon.webp';
 import Shiroko_Icon from './Shiroko_Icon.webp';
+import Shiroko_Portrait from './Shiroko_Portrait.webp';
 import Momoi_Icon from './Momoi_Icon.webp';
+import Momoi_Portrait from './Momoi_Portrait.webp';
 import Koyuki_Icon from './Koyuki_Icon.webp';
 import Hikari_Icon from './Hikari_Icon.webp';
 
@@ -70,4 +82,22 @@ export const characterIcons = {
   Momoi_Icon,
   Koyuki_Icon,
   Hikari_Icon,
+};
+
+export const characterPortraits = {
+  Reisa: Reisa_Portrait,
+  Shiroko: Shiroko_Portrait,
+  Momoi: Momoi_Portrait,
+};
+
+export const academyLogos = {
+  Trinity: Trinity_Intro,
+  Gehenna: Gehenna_Intro,
+  Millennium: Millennium_Intro,
+  Abydos: Abydos_Intro,
+  Hyakkiyako: Hyakkiyako_Intro,
+  Shanhaijing: Shanhaijing_Intro,
+  RedWinter: Red_Winter_Intro,
+  Valkyrie: Valkyrie_Intro,
+  WildHunt: Wild_Hunt_Intro,
 };

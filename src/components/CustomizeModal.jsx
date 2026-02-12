@@ -42,17 +42,17 @@ function CustomizeModal({ isOpen, onClose, theme, onSave }) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in"
       role="dialog"
       aria-modal="true"
       aria-labelledby="customize-title"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl bg-slate-800 border border-slate-600 shadow-2xl"
+        className="w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl glass-panel border border-white/10 shadow-2xl animate-scale-in card-glow"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="sticky top-0 z-10 flex items-center justify-between px-4 sm:px-6 py-4 border-b border-slate-600 bg-slate-800/95 backdrop-blur">
+        <div className="sticky top-0 z-10 flex items-center justify-between px-4 sm:px-6 py-4 border-b border-slate-600 bg-slate-800/95 backdrop-blur-md">
           <h2 id="customize-title" className="text-lg font-semibold text-white">
             Customize
           </h2>
@@ -67,7 +67,7 @@ function CustomizeModal({ isOpen, onClose, theme, onSave }) {
         </div>
 
         <div className="p-4 sm:p-6 space-y-6">
-          <section>
+          <section className="animate-fade-in-up delay-100">
             <h3 className="text-sm font-medium text-slate-300 mb-3">Background</h3>
             <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
               {backgroundEntries.map(([key, url]) => (
@@ -75,11 +75,10 @@ function CustomizeModal({ isOpen, onClose, theme, onSave }) {
                   key={key}
                   type="button"
                   onClick={() => setBackgroundKey(key)}
-                  className={`relative aspect-video rounded-xl overflow-hidden border-2 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 ${
-                    backgroundKey === key
+                  className={`relative aspect-video rounded-xl overflow-hidden border-2 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 hover-lift ${backgroundKey === key
                       ? 'border-sky-400 ring-2 ring-sky-400/50'
                       : 'border-slate-600 hover:border-slate-500'
-                  }`}
+                    }`}
                 >
                   <img
                     src={url}
@@ -94,7 +93,7 @@ function CustomizeModal({ isOpen, onClose, theme, onSave }) {
             </div>
           </section>
 
-          <section>
+          <section className="animate-fade-in-up delay-200">
             <h3 className="text-sm font-medium text-slate-300 mb-3">Color scheme</h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {COLOR_SCHEMES.map((scheme) => (
@@ -102,13 +101,15 @@ function CustomizeModal({ isOpen, onClose, theme, onSave }) {
                   key={scheme.id}
                   type="button"
                   onClick={() => setColorScheme(scheme.id)}
-                  className={`flex flex-col items-center gap-1.5 rounded-xl border-2 px-3 py-3 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 ${
-                    colorScheme === scheme.id
+                  className={`flex flex-col items-center gap-1.5 rounded-xl border-2 px-3 py-3 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 hover-lift ${colorScheme === scheme.id
                       ? 'border-sky-400 bg-sky-500/10'
                       : 'border-slate-600 hover:border-slate-500 bg-slate-700/50'
-                  }`}
+                    }`}
                 >
-                  <span className={`w-8 h-8 rounded-full ${scheme.preview}`} />
+                  <span
+                    className={`w-8 h-8 rounded-full ${scheme.preview} transition-transform duration-200 ${colorScheme === scheme.id ? 'scale-110' : ''
+                      }`}
+                  />
                   <span className="text-xs font-medium text-slate-200">{scheme.name}</span>
                 </button>
               ))}
@@ -116,18 +117,18 @@ function CustomizeModal({ isOpen, onClose, theme, onSave }) {
           </section>
         </div>
 
-        <div className="sticky bottom-0 flex gap-2 px-4 sm:px-6 py-4 border-t border-slate-600 bg-slate-800/95 backdrop-blur">
+        <div className="sticky bottom-0 flex gap-2 px-4 sm:px-6 py-4 border-t border-slate-600 bg-slate-800/95 backdrop-blur-md">
           <button
             type="button"
             onClick={onClose}
-            className="flex-1 py-2.5 rounded-xl border border-slate-500 text-slate-200 hover:bg-slate-600/60 transition font-medium"
+            className="flex-1 py-2.5 rounded-xl border border-slate-500 text-slate-200 hover:bg-slate-600/60 transition-all duration-200 font-medium hover:scale-[1.02] active:scale-95"
           >
             Cancel
           </button>
           <button
             type="button"
             onClick={handleSave}
-            className="flex-1 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-medium transition"
+            className="flex-1 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-medium transition-all duration-200 hover:scale-[1.02] active:scale-95 hover:shadow-lg hover:shadow-sky-500/25"
           >
             Save
           </button>
