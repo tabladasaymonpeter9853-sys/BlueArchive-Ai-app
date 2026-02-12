@@ -16,6 +16,7 @@ import BG_ClassRoom2 from './BG_ClassRoom2.webp';
 import BG_CommitteeRoom_Sunset from './BG_CommitteeRoom_Sunset.webp';
 import BG_ConventionHall3_Sunset from './BG_ConventionHall3_Sunset.webp';
 import BG_CruiseRooftop_Sunset from './BG_CruiseRooftop_Sunset.jpg';
+import BG_Landing from './dkk3gfa-570de4f9-4141-45a6-954e-d21179213864.gif';
 import Blue_Archive_logo_JP from './Blue_Archive_logo_JP.png';
 import Abydos_Intro from './Abydos_Intro.webp';
 import Gehenna_Intro from './Gehenna_Intro.webp';
@@ -51,6 +52,7 @@ export const backgrounds = {
   classRoom2: BG_ClassRoom2,
   conventionHall: BG_ConventionHall3_Sunset,
   cruiseRooftop: BG_CruiseRooftop_Sunset,
+  landing: BG_Landing,
 };
 
 /** Display labels for background picker */
