@@ -4,6 +4,7 @@ import ThemeRoot from './components/ThemeRoot';
 import LandingPage from './components/LandingPage';
 import ChatInterface from './components/ChatInterface';
 import AboutPage from './components/AboutPage';
+import MusicPlayer from './components/MusicPlayer';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home'); // home, about, chat
@@ -37,6 +38,8 @@ function App() {
             />
           </div>
         )}
+
+        <MusicPlayer />
       </ThemeRoot>
     </ThemeProvider>
   );

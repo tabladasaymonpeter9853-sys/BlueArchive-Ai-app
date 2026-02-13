@@ -103,3 +103,15 @@ export const academyLogos = {
   Valkyrie: Valkyrie_Intro,
   WildHunt: Wild_Hunt_Intro,
 };
+
+import OST_UsagiFlap from './bgmusic/ブルーアーカイブ Blue Archive OST 113. Usagi Flap.mp3';
+import OST_UnwelcomeSchool from './bgmusic/ブルーアーカイブ Blue Archive OST 7. Unwelcome School.mp3';
+import ICON_UsagiFlap from './Usagi Flap Icon.jpg';
+import ICON_UnwelcomeSchool from './Unwelcome School Icon.jpg';
+
+export const music = {
+  usagiFlap: OST_UsagiFlap,
+  unwelcomeSchool: OST_UnwelcomeSchool,
+  usagiFlapIcon: ICON_UsagiFlap,
+  unwelcomeSchoolIcon: ICON_UnwelcomeSchool,
+};
